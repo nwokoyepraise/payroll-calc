@@ -1,11 +1,13 @@
 //import fs for file input reading
 const fs = require("fs");
 
-//anonymous function to calculate output
 (async () => {
   //read input file and assign it to const data
-  const data = (await fs.readFileSync("sample.txt")).toString();
+  calcPay((await fs.readFileSync("sample.txt")).toString());
+})();
 
+//function to calculate output
+function calcPay(data) {
   //initialize sum variable to zero
   let sum = 0;
 
@@ -60,4 +62,7 @@ const fs = require("fs");
   }
   //print final output to console using the specified template
   console.log(`The amount to pay ${res1[0]} is: ${sum} USD`);
-})();
+  return `The amount to pay ${res1[0]} is: ${sum} USD`;
+}
+
+module.exports.calcPay = calcPay;

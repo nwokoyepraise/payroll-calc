@@ -1,0 +1,22 @@
+{
+  "name": "payroll-calc",
+  "version": "1.0.0",
+  "description": "Application to calculate worker payroll based on the number of hours and the specific days worked",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nwokoyepraise/payroll-calc.git"
+  },
+  "author": "nwokoyepraise",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/nwokoyepraise/payroll-calc/issues"
+  },
+  "homepage": "https://github.com/nwokoyepraise/payroll-calc#readme",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
