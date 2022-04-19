@@ -1,8 +1,9 @@
 //import fs for file input reading
 const fs = require("fs");
 
+//IIFE to read input from file
 (async () => {
-  //read input file and assign it to const data
+  //read input file and call function to calc pay passing the data as arguement
   calcPay((await fs.readFileSync("sample.txt")).toString());
 })();
 
