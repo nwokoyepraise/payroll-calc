@@ -31,8 +31,10 @@ function calcPay(data) {
       let timeEnd = element[1].split("-")[1];
       let hourStart = element[1].split("-")[0].slice(0, 2);
       let hourEnd = element[1].split("-")[1].slice(0, 2);
-      let numHours = Math.abs(hourEnd - hourStart);
-
+     
+      //calculate num of hour worked while handling the edge case of using "00:00" as "24:00" hours in hourEnd
+      let numHours = (hourEnd == "00") ? Math.abs(24 - hourStart) : Math.abs(hourEnd - hourStart);
+    
       //check day data and assign amount by number of hours worked
       switch (element[0]) {
         case "MO":
@@ -40,7 +42,10 @@ function calcPay(data) {
         case "WE":
         case "TH":
         case "FR":
-          if (timeStart >= "00:01" && timeEnd <= "09:00") {
+          if (timeStart >= "00:01" && timeEnd == "00:00") {
+            sum += 20 * numHours;
+          }
+          else if (timeStart >= "00:01" && timeEnd <= "09:00") {
             sum += 25 * numHours;
           } else if (timeStart >= "09:01" && timeEnd <= "18:00") {
             sum += 15 * numHours;
@@ -50,7 +55,10 @@ function calcPay(data) {
           break;
         case "SA":
         case "SU":
-          if (timeStart >= "00:01" && timeEnd <= "09:00") {
+          if (timeStart >= "00:01" && timeEnd == "00:00") {
+            sum += 25 * numHours;
+          }
+          else if (timeStart >= "00:01" && timeEnd <= "09:00") {
             sum += 30 * numHours;
           } else if (timeStart >= "09:01" && timeEnd <= "18:00") {
             sum += 20 * numHours;
