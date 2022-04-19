@@ -42,7 +42,7 @@ function calcPay(data) {
         case "WE":
         case "TH":
         case "FR":
-          if (timeStart >= "00:01" && timeEnd == "00:00") {
+          if (timeStart >= "00:01" && hourEnd == "00") {
             sum += 20 * numHours;
           }
           else if (timeStart >= "00:01" && timeEnd <= "09:00") {
@@ -55,7 +55,7 @@ function calcPay(data) {
           break;
         case "SA":
         case "SU":
-          if (timeStart >= "00:01" && timeEnd == "00:00") {
+          if (timeStart >= "00:01" && hourEnd == "00") {
             sum += 25 * numHours;
           }
           else if (timeStart >= "00:01" && timeEnd <= "09:00") {
